@@ -1,0 +1,53 @@
+{% extends 'base.html' %}{% block content %}
+
+<div class="chat-box">
+  <div class="messages" id="messages" style="overflow:auto; height:200px;"></div>
+  
+  <textarea name="message" style="width:250px;height:150px;" id="message" placeholder="Your Message"></textarea>
+  <button type="button" onclick="sendMsg()">Send</button>
+  
+</div>
+
+<script type="text/javascript">
+  var socketio = io();
+  var messages = document.getElementById("messages");
+  
+  const createMsg = (name, message) => {
+    
+      var content = `<div>
+          <span>
+            <strong>${name}: </strong>${message}
+          </span>
+          </div>`;
+    
+    messages.innerHTML += content;
+    messages.scrollTop = messages.scrollHeight;
+  };
+  document.addEventListener('keydown', (event) => {
+  if (event.ctrlKey && event.key === 'Enter') {
+    sendMsg();
+  }
+  });
+  socketio.on("message", (data) => {
+    createMsg(data.name, data.message);
+  });
+  
+  const sendMsg = () => {
+    var message = document.getElementById("message");
+    if (message.value == "") return;
+    socketio.emit("message", {data: message.value});
+    message.value = "";
+  };
+  
+</script>
+</script type="text/javascript">
+
+{% for msg in messages %}
+
+createMsg("{{msg.name}}", "{{msg.message}}");
+
+{% endfor %}
+
+</script>
+
+{% endblock %}

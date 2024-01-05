@@ -1,0 +1,82 @@
+/* CSS file */
+
+/* Dark theme for the chat box */
+
+body {
+    background-color: #121212;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+}
+.error {
+    color: #FF0000;
+}
+
+
+.chat-box {
+    background-color: #2f3136;
+    color: #ffffff;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Style for the messages */
+.messages {
+    padding: 10px;
+    overflow: auto;
+    height: 200px;
+}
+
+/* Different colors for each user */
+.user1 {
+    color: #3498db;
+}
+
+.user2 {
+    color: #2ecc71;
+}
+
+/* Style for the text area */
+textarea {
+    width: 90%;
+    max-width: 250px;
+    height: 150px;
+    resize: none;
+    margin: 10px;
+}
+
+/* Style for the send button */
+button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .chat-box {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}

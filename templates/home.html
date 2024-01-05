@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% block content %}
+<form method="POST">
+  <div class="inputs">
+    <input type="text" name="name", placeholder="Your Name">
+    <input type="submit" name="join">
+  </div>
+{% if error %}
+<ul class="error">
+    <li>{{error}}</li>
+</ul>
+{% endif %}
+</form>
+{% endblock %}
