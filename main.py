@@ -76,6 +76,6 @@ def removeUser():
 	if members > 0:
 		members -= 1
 		del users[uid]
-
+#Remove these comments to run this on local machine
 # if __name__ == "__main__":
 # 	socketio.run(app, debug=False, host='0.0.0.0')
